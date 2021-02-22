@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Settings">
+
+    <TextView
+        android:id="@+id/settingsTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/settings"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/titleUnderlineImageView"
+        tools:text="SETTINGS" />
+
+    <ImageView
+        android:id="@+id/titleUnderlineImageView"
+        android:layout_width="419dp"
+        android:layout_height="43dp"
+        android:contentDescription="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsTitleTextView"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout"
+        app:srcCompat="@drawable/line" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleUnderlineImageView" >
+
+        <Button
+            android:id="@+id/setClockButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="?android:attr/panelBackground"
+            android:onClick="setClock"
+            android:text="@string/set_clock"
+            android:textSize="24sp"
+            tools:text="Set Clock" />
+
+        <Button
+            android:id="@+id/savedTimeFormatsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#000000FF"
+            android:onClick="openSavedClocks"
+            android:text="@string/set_saved_clock"
+            android:textSize="24sp"
+            tools:text="Set Saved Clock" />
+
+        <Button
+            android:id="@+id/personalizeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="?android:attr/panelBackground"
+            android:onClick="openPersonalizeActivity"
+            android:text="@string/personalize"
+            android:textSize="24sp"
+            tools:text="Personalize" />
+
+        <Button
+            android:id="@+id/infoButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="?android:attr/panelBackground"
+            android:onClick="openAppInformation"
+            android:text="@string/app_info"
+            android:textSize="24sp"
+            tools:text="App Information" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

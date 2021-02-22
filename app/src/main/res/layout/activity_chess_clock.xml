@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChessClock">
+
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openSettings"
+        android:text="@string/settings"
+        app:layout_constraintBottom_toTopOf="@+id/player1ClockTextView"
+        app:layout_constraintEnd_toStartOf="@id/pauseAndStartButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player2ClockTextView"
+        tools:text="Settings" />
+
+    <Button
+        android:id="@+id/pauseAndStartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pauseStartClock"
+        android:text="@string/start"
+        app:layout_constraintBottom_toTopOf="@+id/player1ClockTextView"
+        app:layout_constraintEnd_toStartOf="@id/resetButton"
+        app:layout_constraintStart_toEndOf="@id/settingsButton"
+        app:layout_constraintTop_toBottomOf="@id/player2ClockTextView"
+        tools:text="Start/Pause" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="resetClock"
+        android:text="@string/reset"
+        app:layout_constraintBottom_toTopOf="@+id/player1ClockTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pauseAndStartButton"
+        app:layout_constraintTop_toBottomOf="@id/player2ClockTextView"
+        tools:text="Reset" />
+
+    <TextView
+        android:id="@+id/player2ClockTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#114676"
+        android:gravity="center"
+        android:onClick="switchToP1"
+        android:rotation="180"
+        android:textSize="90sp"
+        app:layout_constraintBottom_toTopOf="@+id/pauseAndStartButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="00:00" />
+
+    <TextView
+        android:id="@+id/player1ClockTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#B20E0E"
+        android:gravity="center"
+        android:onClick="switchToP2"
+        android:textSize="90sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pauseAndStartButton"
+        tools:text="00:00" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

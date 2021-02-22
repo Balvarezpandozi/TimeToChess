@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClockForm">
+
+    <TextView
+        android:id="@+id/clockFormTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/set_clock"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/titleUnderlineImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/titleUnderlineImageView"
+        android:layout_width="419dp"
+        android:layout_height="43dp"
+        android:contentDescription="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clockFormTitleTextView"
+        app:layout_constraintBottom_toTopOf="@id/hoursTimeTextView"
+        app:srcCompat="@drawable/line"
+        tools:ignore="NotSibling" />
+
+    <TextView
+        android:id="@+id/timeForPlayersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/time_for_players"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleUnderlineImageView"
+        app:layout_constraintBottom_toTopOf="@id/labelForTimeLinearLayout" />
+
+    <LinearLayout
+        android:id="@+id/labelForTimeLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeForPlayersTextView"
+        app:layout_constraintBottom_toTopOf="@id/pickersForTimeLinearLayout">
+
+        <TextView
+            android:id="@+id/hoursTimeTextView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/hours"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/minutesTimeTextView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/minutes"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/secondsTimeTextView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/seconds"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pickersForTimeLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/bonusTimeTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelForTimeLinearLayout">
+
+        <NumberPicker
+            android:id="@+id/hoursTimePicker"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+
+        <NumberPicker
+            android:id="@+id/minutesTimePicker"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+
+        <NumberPicker
+            android:id="@+id/secondsTimePicker"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/bonusTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bonus_time"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pickersForTimeLinearLayout"
+        app:layout_constraintBottom_toTopOf="@id/labelBonusLinearLayout" />
+
+    <LinearLayout
+        android:id="@+id/labelBonusLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bonusTimeTextView"
+        app:layout_constraintBottom_toTopOf="@id/pickersBonusLinearLayout" >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/hours"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/minutes"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/seconds"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pickersBonusLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/setButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelBonusLinearLayout">
+
+        <NumberPicker
+            android:id="@+id/hoursBonusPicker"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+
+        <NumberPicker
+            android:id="@+id/minutesBonusPicker"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+
+        <NumberPicker
+            android:id="@+id/secondsBonusPicker"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/setButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_weight="1"
+        android:background="#B20E0E"
+        android:onClick="setClock"
+        android:text="@string/set"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/saveSetButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickersBonusLinearLayout" />
+
+    <Button
+        android:id="@+id/saveSetButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#114676"
+        android:onClick="setAndSaveClock"
+        android:text="@string/save_set"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

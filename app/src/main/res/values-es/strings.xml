@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TimeToChess</string>
+    <string name="logo_description">Logo de TImeToChess</string>
+    <string name="settings">AJUSTES</string>
+    <string name="start">Iniciar</string>
+    <string name="pause">Pausar</string>
+    <string name="reset">Reiniciar</string>
+    <string name="set_clock">Configurar Reloj</string>
+    <string name="set_saved_clock">Configurar Reloj Guardado</string>
+    <string name="personalize">Personalizar</string>
+    <string name="app_info">Información del App</string>
+    <string name="bdap_logo_description">Logo de BryanDAlvarez</string>
+    <string name="version">Versión 1.0</string>
+    <string name="author">Bryan D Alvarez P</string>
+    <string name="coded_designed">Programado y Diseñado por</string>
+    <string name="website">BryanDAlvarez.com</string>
+    <string name="time_for_players">Tiempo por jugador</string>
+    <string name="bonus_time">Tiempo bonus por movida</string>
+    <string name="hours">Horas</string>
+    <string name="minutes">Minutos</string>
+    <string name="seconds">Segundos</string>
+    <string name="set">Configurar Reloj</string>
+    <string name="save_set">Configurar y Guardar Reloj</string>
+</resources>
