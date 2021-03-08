@@ -21,5 +21,9 @@
     <string name="seconds">Seconds</string>
     <string name="set">Set Clock</string>
     <string name="save_set">Save and Set Clock</string>
+    <string name="saved_clocks">Saved Clocks</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="time_out">Time Out!</string>
 
 </resources>

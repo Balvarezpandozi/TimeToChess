@@ -10,6 +10,7 @@ import android.widget.Button;
 
 public class Settings extends AppCompatActivity {
 
+    //Declare Variables
     Button setClockButton;
     Button setSavedClock;
     Button personalize;
@@ -20,25 +21,31 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //Initialize variables
         setClockButton = findViewById(R.id.setClockButton);
         setSavedClock = findViewById(R.id.savedTimeFormatsButton);
         personalize = findViewById(R.id.personalizeButton);
         appInformationButton = findViewById(R.id.infoButton);
     }
 
+    //Opens form activity to set clock
     public void setClock(View view){
         Intent setClockIntent = new Intent(getApplicationContext(), ClockForm.class);
         startActivity(setClockIntent);
     }
 
+    //Opens saved clocks activity
     public void openSavedClocks(View view){
-        Log.i("SavedClocksButton", "Button pressed.");
+        Intent savedClocksIntent = new Intent(getApplicationContext(), SavedClocks.class);
+        startActivity(savedClocksIntent);
     }
 
+    //Opens personalize activity
     public void openPersonalizeActivity(View view){
         Log.i("PersonalizeButton", "Button Pressed.");
     }
 
+    //Opens the App Information activity
     public void openAppInformation(View view){
         Intent appInfoIntent = new Intent(getApplicationContext(), AppInformation.class);
         startActivity(appInfoIntent);

@@ -22,4 +22,8 @@
     <string name="seconds">Segundos</string>
     <string name="set">Configurar Reloj</string>
     <string name="save_set">Configurar y Guardar Reloj</string>
+    <string name="saved_clocks">Relojes Guardados</string>
+    <string name="delete">Borrar</string>
+    <string name="edit">Editar</string>
+    <string name="time_out">Sin Tiempo!</string>
 </resources>
