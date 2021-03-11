@@ -25,5 +25,11 @@
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
     <string name="time_out">Time Out!</string>
+    <string name="player_1">Player 1</string>
+    <string name="player_2">Player 2</string>
+    <string name="name_for_p1">Name for player 1</string>
+    <string name="name_for_p2">Name for player 2</string>
+    <string name="add_name">You have to add names to both players</string>
+    <string name="apply_changes">Apply Changes</string>
 
 </resources>

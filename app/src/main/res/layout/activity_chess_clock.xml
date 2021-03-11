@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:onClick="openSettings"
         android:text="@string/settings"
-        app:layout_constraintBottom_toTopOf="@+id/player1ClockTextView"
+        app:layout_constraintBottom_toTopOf="@+id/player1NameTextView"
         app:layout_constraintEnd_toStartOf="@id/pauseAndStartButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/player2ClockTextView"
+        app:layout_constraintTop_toBottomOf="@id/player2NameTextView"
         tools:text="Settings" />
 
     <Button
@@ -24,10 +24,10 @@
         android:layout_height="wrap_content"
         android:onClick="pauseStartClock"
         android:text="@string/start"
-        app:layout_constraintBottom_toTopOf="@+id/player1ClockTextView"
+        app:layout_constraintBottom_toTopOf="@+id/player1NameTextView"
         app:layout_constraintEnd_toStartOf="@id/resetButton"
         app:layout_constraintStart_toEndOf="@id/settingsButton"
-        app:layout_constraintTop_toBottomOf="@id/player2ClockTextView"
+        app:layout_constraintTop_toBottomOf="@id/player2NameTextView"
         tools:text="Start/Pause" />
 
     <Button
@@ -36,10 +36,10 @@
         android:layout_height="wrap_content"
         android:onClick="resetClock"
         android:text="@string/reset"
-        app:layout_constraintBottom_toTopOf="@+id/player1ClockTextView"
+        app:layout_constraintBottom_toTopOf="@+id/player1NameTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/pauseAndStartButton"
-        app:layout_constraintTop_toBottomOf="@id/player2ClockTextView"
+        app:layout_constraintTop_toBottomOf="@id/player2NameTextView"
         tools:text="Reset" />
 
     <TextView
@@ -49,14 +49,14 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#114676"
         android:gravity="center"
         android:onClick="switchToP1"
         android:rotation="180"
         android:textSize="90sp"
-        app:layout_constraintBottom_toTopOf="@+id/pauseAndStartButton"
+        app:layout_constraintBottom_toTopOf="@+id/player2NameTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,7 +67,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corners"
@@ -77,8 +77,41 @@
         android:textSize="90sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pauseAndStartButton"
+        app:layout_constraintTop_toBottomOf="@+id/player1NameTextView"
+        app:layout_constraintVertical_bias="0.509"
         tools:text="00:00" />
+
+    <TextView
+        android:id="@+id/player2NameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:rotation="180"
+        android:text="@string/player_2"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/pauseAndStartButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player2ClockTextView" />
+
+    <TextView
+        android:id="@+id/player1NameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/player_1"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/player1ClockTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pauseAndStartButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

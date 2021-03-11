@@ -10,18 +10,19 @@ import android.view.animation.AnimationUtils;
 
 public class MainActivity extends AppCompatActivity {
 
-    Handler handler;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Declare and Initialized variables
         final View logoImageView = findViewById(R.id.logoImageView);
         final Handler handler = new Handler();
 
+        //Animation set up
         logoImageView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.splash_in));
 
+        //Implements delays
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {

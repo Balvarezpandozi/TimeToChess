@@ -4,7 +4,11 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -19,7 +23,11 @@ public class ChessClock extends AppCompatActivity {
     Button pauseStartButton;
     Button resetButton;
 
-    //These are the clocks that show the time each player have
+    //These variables show the player name
+    TextView namePlayer1;
+    TextView namePlayer2;
+
+    //These variables are the clocks that show the time each player have
     TextView clockPlayer1;
     TextView clockPlayer2;
 
@@ -45,15 +53,24 @@ public class ChessClock extends AppCompatActivity {
     //This variable holds the bonus time determined for each player
     long bonusPerPlayer;
 
+    //These variables help to play sounds when time ends and switching between turns
+    MediaPlayer alarmPlayer;
+    MediaPlayer switchTurnPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chess_clock);
 
+
         //Variables initialization
         settingsButton = findViewById(R.id.settingsButton);
         pauseStartButton = findViewById(R.id.pauseAndStartButton);
         resetButton = findViewById(R.id.resetButton);
+        resetButton.setEnabled(false);
+
+        namePlayer1 = findViewById(R.id.player1NameTextView);
+        namePlayer2 = findViewById(R.id.player2NameTextView);
 
         clockPlayer1 = findViewById(R.id.player1ClockTextView);
         clockPlayer2 = findViewById(R.id.player2ClockTextView);
@@ -61,6 +78,13 @@ public class ChessClock extends AppCompatActivity {
 
         activePlayer = 0;
         isClockActive = false;
+
+        alarmPlayer = MediaPlayer.create(getApplicationContext(), R.raw.alarm_sound);
+
+        //Personalization: setting player names
+        SharedPreferences sharedPreferences = this.getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
+        namePlayer1.setText(sharedPreferences.getString("player1", getResources().getString(R.string.player_1)));
+        namePlayer2.setText(sharedPreferences.getString("player2", getResources().getString(R.string.player_2)));
 
         //This intent takes the amounts of time determined in settings to initialize variables
         Intent intent = getIntent();
@@ -83,21 +107,24 @@ public class ChessClock extends AppCompatActivity {
     }
 
     //Resets time variables, clocks and timers
-    @SuppressLint("SetTextI18n")
     public void resetClock(View view){
         timerP1.cancel();
         timerP2.cancel();
         millisLeftP1 = timeForP1;
         millisLeftP2 = timeForP2;
-        clockPlayer1.setText(formatClockNumber(timeForP1/(1000*60)) + ":" + formatClockNumber((timeForP1/1000)-(timeForP1/(1000*60))*60));
-        clockPlayer2.setText(formatClockNumber(timeForP2/(1000*60)) + ":" + formatClockNumber((timeForP2/1000)-(timeForP2/(1000*60))*60));
+        setTextInClock(clockPlayer1,0);
+        setTextInClock(clockPlayer2,1);
+        if (activePlayer == 0){
+            clockPlayer1.setEnabled(true);
+        }else{
+            clockPlayer2.setEnabled(true);
+        }
     }
 
     //Shows players' time in the clocks
-    @SuppressLint("SetTextI18n")
     public void setClock(){
-        clockPlayer1.setText(formatClockNumber(timeForP1/(1000*60)) + ":" + formatClockNumber((timeForP1/1000)-(timeForP1/(1000*60))*60));
-        clockPlayer2.setText(formatClockNumber(timeForP2/(1000*60)) + ":" + formatClockNumber((timeForP2/1000)-(timeForP2/(1000*60))*60));
+        setTextInClock(clockPlayer1,0);
+        setTextInClock(clockPlayer2,1);
     }
 
     //Open settings activity
@@ -111,42 +138,42 @@ public class ChessClock extends AppCompatActivity {
         //Player 1
         timerP1 = new CountDownTimer(millisLeftP1, 1000){
             //Every second updates the clock and the time variables to keep track of the time
-            @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long millisUntilFinished) {
                 millisLeftP1=millisUntilFinished;
-                long min = (millisLeftP1/(1000*60));
-                long sec = ((millisLeftP1/1000)-min*60);
-                clockPlayer1.setText(formatClockNumber(min) + ":" + formatClockNumber(sec));
+                setTextInClock(clockPlayer1, 0);
             }
             //When finished changes the time to "Time Out!"
             @Override
             public void onFinish() {
                 clockPlayer1.setText(R.string.time_out);
+                alarmPlayer.start();
+                clockPlayer1.setEnabled(false);
+                clockPlayer2.setEnabled(false);
             }
         };
         //Player 2
         timerP2 = new CountDownTimer(millisLeftP2, 1000){
             //Every second updates the clock and the time variables to keep track of the time
-            @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long millisUntilFinished) {
                 millisLeftP2=millisUntilFinished;
-                long min = (millisLeftP2/(1000*60));
-                long sec = ((millisLeftP2/1000)-min*60);
-                clockPlayer2.setText(formatClockNumber(min) + ":" + formatClockNumber(sec));
+                setTextInClock(clockPlayer2, 1);
             }
             //When finished changes the time to "Time Out!"
             @Override
             public void onFinish() {
                 clockPlayer2.setText(R.string.time_out);
+                alarmPlayer.start();
+                clockPlayer1.setEnabled(false);
+                clockPlayer2.setEnabled(false);
             }
         };
     }
 
     //Pauses and Starts clock
     public void pauseStartClock(View view){
-
+        resetButton.setEnabled(true);
         if(isClockActive){
             //If clocks is running
             //Stop timers
@@ -203,6 +230,21 @@ public class ChessClock extends AppCompatActivity {
         }
     }
 
+    //Set text in player clock
+    @SuppressLint("SetTextI18n")
+    public void setTextInClock(TextView clock, int player){
+        long min;
+        long sec;
+        if (player == 0) {
+              min = (millisLeftP1/(1000*60));
+              sec = ((millisLeftP1/1000)-min*60);
+        }else{
+            min = (millisLeftP2/(1000*60));
+            sec = ((millisLeftP2/1000)-min*60);
+        }
+        clock.setText(formatClockNumber(min) + ":" + formatClockNumber(sec));
+    }
+
     //If number is less than 10, adds zero before the number. Ex. 09, 05.
     public String formatClockNumber(long num){
         String formattedNum;
@@ -218,8 +260,10 @@ public class ChessClock extends AppCompatActivity {
     public void addBonusTime(long bonus, int player){
         if (player==0){
             millisLeftP1 += bonus;
+            setTextInClock(clockPlayer1, player);
         }else{
             millisLeftP2 += bonus;
+            setTextInClock(clockPlayer2, player);
         }
     }
 }

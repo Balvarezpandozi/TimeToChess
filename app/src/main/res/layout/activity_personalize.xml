@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Personalize">
+
+    <TextView
+        android:id="@+id/personalizeTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/personalize"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/titleUnderlineImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="PERSONALIZE" />
+
+    <ImageView
+        android:id="@+id/titleUnderlineImageView"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:contentDescription="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personalizeTitleTextView"
+        app:srcCompat="@drawable/line" />
+
+    <TextView
+        android:id="@+id/player1NameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/primary_red"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/player_1"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/player1NameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleUnderlineImageView" />
+
+    <EditText
+        android:id="@+id/player1NameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/name_for_p1"
+        android:inputType="textPersonName"
+        android:maxLength="15"
+        android:maxLines="1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/player2NameTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player1NameTextView"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/player2NameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/primary_blue"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/player_2"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/player2NameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player1NameEditText" />
+
+    <EditText
+        android:id="@+id/player2NameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/name_for_p2"
+        android:inputType="textPersonName"
+        android:maxLength="15"
+        android:maxLines="1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/applyChangesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player2NameTextView"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/applyChangesButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line"
+        android:onClick="applyChanges"
+        android:text="@string/apply_changes"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player2NameEditText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

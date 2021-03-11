@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    android:background="@drawable/bgmainact"
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/logoImageView"
-        android:layout_width="265dp"
-        android:layout_height="266dp"
+        android:layout_width="246dp"
+        android:layout_height="234dp"
         android:contentDescription="@string/logo_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:layout_constraintVertical_bias="0.455"
+        app:srcCompat="@drawable/logotimetochess" />
 
     <LinearLayout
         android:layout_width="409dp"

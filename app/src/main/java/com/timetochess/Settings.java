@@ -42,7 +42,8 @@ public class Settings extends AppCompatActivity {
 
     //Opens personalize activity
     public void openPersonalizeActivity(View view){
-        Log.i("PersonalizeButton", "Button Pressed.");
+        Intent personalizeIntent = new Intent(getApplicationContext(), Personalize.class);
+        startActivity(personalizeIntent);
     }
 
     //Opens the App Information activity
